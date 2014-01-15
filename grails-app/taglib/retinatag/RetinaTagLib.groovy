@@ -19,7 +19,7 @@ class RetinaTagLib extends AssetsTagLib {
     def retinaPath = "${fileName}@2x.${extension}"
 
     // Lets test if retina equivalent exists
-    def retinaAsset = assetPathExists(retinaPath) ? assetPath(retinaPath) : null
+    def retinaAsset = assetPathExists(src:retinaPath) ? assetPath(retinaPath) : null
     println retinaAsset
     if(retinaAsset) {
     	attrs["hidpi_src"] = retinaAsset
@@ -28,19 +28,4 @@ class RetinaTagLib extends AssetsTagLib {
 		out << "<img src=\"${assetPath(src)}\" ${paramsToHtmlAttr(attrs)}/>"
 	}
 
-	private assetPathExists(src) {
-		def conf = grailsApplication.config.grails.assets
-		if(conf.precompiled) {
-			def realPath = conf.manifest.getProperty(src)
-			if(realPath) {
-				return true
-			}
-		} else {
-			def assetFile = AssetHelper.fileForFullName(src)
-			if(assetFile) {
-				return true
-			}
-		}
-		return false
-	}
 }
