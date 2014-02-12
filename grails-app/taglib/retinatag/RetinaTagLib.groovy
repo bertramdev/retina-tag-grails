@@ -13,19 +13,18 @@ class RetinaTagLib extends AssetsTagLib {
 			return
 		}
 		def retinaElements = src.toString().split(/\./)
-		println retinaElements
-    def extension = retinaElements[retinaElements.size() - 1]
-    def fileName = retinaElements[0..retinaElements.size()-2].join(".")
-    def retinaPath = "${fileName}@2x.${extension}"
+	    def extension = retinaElements[retinaElements.size() - 1]
+	    def fileName = retinaElements[0..retinaElements.size()-2].join(".")
+	    def retinaPath = "${fileName}@2x.${extension}"
 
-    // Lets test if retina equivalent exists
-    def retinaAsset = assetPathExists(src:retinaPath) ? assetPath(retinaPath) : null
-    println retinaAsset
-    if(retinaAsset) {
-    	attrs["hidpi_src"] = retinaAsset
-    }
+	    // Lets test if retina equivalent exists
+	    def retinaAsset = assetPathExists(src:retinaPath) ? assetPath(src:retinaPath) : null
+	    
+	    if(retinaAsset) {
+	    	attrs["hidpi_src"] = retinaAsset
+	    }
 
-		out << "<img src=\"${assetPath(src)}\" ${paramsToHtmlAttr(attrs)}/>"
+		out << "<img src=\"${assetPath(src:src)}\" ${paramsToHtmlAttr(attrs)}/>"
 	}
 
 }
