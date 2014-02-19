@@ -18,13 +18,18 @@ class RetinaTagLib extends AssetsTagLib {
 	    def retinaPath = "${fileName}@2x.${extension}"
 
 	    // Lets test if retina equivalent exists
-	    def retinaAsset = assetPathExists(src:retinaPath) ? assetPath(src:retinaPath) : null
+	    	    
+	    def retinaAsset = isAssetPath(retinaPath) ? assetPath(src:retinaPath) : null
 	    
 	    if(retinaAsset) {
 	    	attrs["hidpi_src"] = retinaAsset
 	    }
 
 		out << "<img src=\"${assetPath(src:src)}\" ${paramsToHtmlAttr(attrs)}/>"
+	}
+
+	private paramsToHtmlAttr(attrs) {
+		attrs.collect { key, value -> "${key}=\"${value.toString().replace('\'', '\\\'')}\"" }?.join(" ")
 	}
 
 }
