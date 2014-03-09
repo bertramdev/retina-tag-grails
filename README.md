@@ -39,10 +39,10 @@ Awesome right?
 Retina tag listens to the global event on document called `retina_tag:refresh`. Firing this event will force retina_tag to rescan the dom for images and update their image src if necessary. Useful if loading content dynamically. **Note:** retina_tag automatically supports turbolinks.
 
 ### Override Hidpi src attribute
-In some cases it becomes necessary to override the hidpi_src attribute and skip asset pipeline. A good example of this might be to load a users profile picture which is stored elsewhere.
+In some cases it becomes necessary to override the data-hidpi-src attribute and skip asset pipeline. A good example of this might be to load a users profile picture which is stored elsewhere.
 
 ```
-	<asset:image src="${user.photo.url('medium')}" hidpi_src="${user.photo.url('medium_2x')" height="75%" width="75"/>
+	<asset:image src="${user.photo.url('medium')}" data-hidpi-src="${user.photo.url('medium_2x')" height="75%" width="75"/>
 ```
 
 

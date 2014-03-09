@@ -22,7 +22,7 @@ class RetinaTagLib extends AssetsTagLib {
 	    def retinaAsset = isAssetPath(retinaPath) ? assetPath(src:retinaPath) : null
 	    
 	    if(retinaAsset) {
-	    	attrs["hidpi_src"] = retinaAsset
+	    	attrs["data-hidpi-src"] = retinaAsset
 	    }
 
 		out << "<img src=\"${assetPath(src:src)}\" ${paramsToHtmlAttr(attrs)}/>"
