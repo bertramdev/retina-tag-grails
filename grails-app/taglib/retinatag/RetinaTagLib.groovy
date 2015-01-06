@@ -2,6 +2,7 @@ package retinatag
 
 import grails.util.Environment
 import asset.pipeline.*
+import asset.pipeline.grails.*
 
 class RetinaTagLib extends AssetsTagLib {
 

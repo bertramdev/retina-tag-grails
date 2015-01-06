@@ -9,7 +9,7 @@ Add retina tag to your build config
 
 ```
 plugins {
-	runtime ':retina-tag:0.5.0'
+	compile ':retina-tag:1.1.0'
 }
 ```
 
