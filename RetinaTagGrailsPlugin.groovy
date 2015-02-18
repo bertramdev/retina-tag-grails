@@ -2,7 +2,7 @@ import org.codehaus.groovy.grails.commons.*
 import asset.pipeline.*
 
 class RetinaTagGrailsPlugin {
-    def version = "2.1.0"
+    def version = "2.1.1"
     def grailsVersion = "2.0 > *"
     def title = "Retina Tag Plugin"
     def author = "David Estes"
@@ -16,7 +16,7 @@ class RetinaTagGrailsPlugin {
     def scm = [ url: "http://github.com/bertramdev/retina-tag-grails" ]
 
     def doWithDynamicMethods = { ctx ->
-        def assetTagLib  = ctx.getBean('asset.pipeline.AssetsTagLib')
+        def assetTagLib  = ctx.getBean('asset.pipeline.grails.AssetsTagLib')
         def retinaTagLib = ctx.getBean('retinatag.RetinaTagLib')
         assetTagLib.image = retinaTagLib.image
     }
