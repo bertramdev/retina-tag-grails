@@ -1,5 +1,7 @@
 .DS_Store
 /target
+build/
+.gradle/
 plugin.xml
 *.log
 *.zip
