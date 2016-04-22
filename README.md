@@ -13,6 +13,14 @@ plugins {
 }
 ```
 
+### Grals 3
+
+```
+dependencies {
+	compile 'com.bertramlabs.plugins:retina-tag:3.0.0'
+}
+```
+
 
 ## Usage
 
